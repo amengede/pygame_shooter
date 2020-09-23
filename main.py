@@ -1,6 +1,7 @@
 from config import *
 from wall import *
 from player import *
+import json
 
 pg.display.set_caption("Shooting Game")
 icon = pg.image.load('gfx/target.png')
@@ -8,12 +9,15 @@ pg.display.set_icon(icon)
 pg.mouse.set_visible(False)
 
 #create objects
-walls = [Wall(((100,100),(500,50))),
-        Wall(((500,50),(550,400))),
-        Wall(((550,400),(350,320))),
-        Wall(((350,320),(120,380))),
-        Wall(((120,380),(100,100)))]
-
+walls = []
+levelname = 'levels/level1.json'
+with open(levelname,'r',encoding='utf-8',newline='') as f:
+    levelData = json.load(f)
+    for attribute in levelData:
+        if "Walls" in attribute:
+            #load wall data
+            for wall in attribute['Walls']:
+                walls.append(Wall((tuple(wall['FirstPosition']),tuple(wall['SecondPosition']))))
 player = Player((200,200))
 
 keys  = {'w':1,'a':2,'s':4,'d':8}
