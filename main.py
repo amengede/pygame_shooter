@@ -18,6 +18,18 @@ with open(levelname,'r',encoding='utf-8',newline='') as f:
             #load wall data
             for wall in attribute['Walls']:
                 walls.append(Wall((tuple(wall['FirstPosition']),tuple(wall['SecondPosition']))))
+"""
+#test: export the same data
+levelData = []
+#export walls
+levelData.append({"Walls":[]})
+for w in walls:
+    pos = w.getPositions()
+    levelData[0]["Walls"].append({"FirstPosition":pos[0],"SecondPosition":pos[1]})
+exportData = json.dumps(levelData,indent=4)
+with open('levels/level2.json','w',encoding='utf-8',newline='') as f:
+    f.write(exportData)
+    """
 player = Player((200,200))
 
 keys  = {'w':1,'a':2,'s':4,'d':8}
