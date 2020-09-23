@@ -26,3 +26,6 @@ FONT = pg.font.Font('freesansbold.ttf', 24)
 
 CLOCK = pg.time.Clock()
 FRAMERATE = 60
+
+def editorImported():
+    print("Editor Configuration was imported")

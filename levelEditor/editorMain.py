@@ -1,11 +1,9 @@
 from editorConfig import *
-from wall import *
-from player import *
 from editor import *
 import json
 
 pg.display.set_caption("Level Editor")
-icon = pg.image.load('gfx/target.png')
+icon = pg.image.load('../gfx/target.png')
 pg.display.set_icon(icon)
 
 #main loop
