@@ -4,7 +4,7 @@ from player import *
 import json
 
 pg.display.set_caption("Shooting Game")
-icon = pg.image.load('gfx/target.png')
+icon = pg.image.load('./gfx/target.png')
 pg.display.set_icon(icon)
 pg.mouse.set_visible(False)
 
@@ -32,7 +32,7 @@ with open('levels/level2.json','w',encoding='utf-8',newline='') as f:
     """
 player = Player((200,200))
 
-keys  = {'w':1,'a':2,'s':4,'d':8}
+keys  = {pg.K_w:1,pg.K_a:2,pg.K_s:4,pg.K_d:8}
 
 #main loop
 running = True
@@ -41,23 +41,11 @@ while running:
     #event handling
     for event in pg.event.get():
         if event.type == pg.KEYDOWN:
-            if event.key == pg.K_w:
-                key += keys['w']
-            elif event.key == pg.K_a:
-                key += keys['a']
-            elif event.key == pg.K_s:
-                key += keys['s']
-            elif event.key == pg.K_d:
-                key += keys['d']
+            if event.key in keys:
+                key += keys[event.key]
         if event.type == pg.KEYUP:
-            if event.key == pg.K_w:
-                key -= keys['w']
-            elif event.key == pg.K_a:
-                key -= keys['a']
-            elif event.key == pg.K_s:
-                key -= keys['s']
-            elif event.key == pg.K_d:
-                key -= keys['d']
+            if event.key in keys:
+                key -= keys[event.key]
             if event.key==pg.K_ESCAPE:
                 running = False
     
