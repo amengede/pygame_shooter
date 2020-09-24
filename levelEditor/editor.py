@@ -1,8 +1,9 @@
 from fileSelector import *
+from mapEditor import *
 
 class Editor():
     def __init__(self):
-        self._active_element = fileSelector(self)
+        self._active_element = mapEditor(self)
     
     def getActiveElement(self):
         return self._active_element
