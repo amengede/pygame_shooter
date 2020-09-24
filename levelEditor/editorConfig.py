@@ -2,7 +2,7 @@ import pygame as pg
 
 pg.init()
 
-SCREEN_SIZE = (1000,800)
+SCREEN_SIZE = (1000,600)
 SCREEN  = pg.display.set_mode(SCREEN_SIZE)
 
 #Colours
@@ -23,6 +23,7 @@ WHITE = (255,255,255)
 
 #Fonts
 FONT = pg.font.Font('freesansbold.ttf', 24)
+FONT_SMALL = pg.font.Font('freesansbold.ttf', 13)
 
 CLOCK = pg.time.Clock()
 FRAMERATE = 60

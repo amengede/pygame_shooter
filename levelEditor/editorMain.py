@@ -1,6 +1,5 @@
 from editorConfig import *
 from editor import *
-import json
 
 pg.display.set_caption("Level Editor")
 icon = pg.image.load('../gfx/target.png')

@@ -1,12 +1,12 @@
 from editorConfig import *
-from openDialogue import *
-from gui_boxes import *
+from new_box import *
+from open_box import *
 
 class fileSelector:
     def __init__(self,program):
         self._program = program
-        self._new_box = NewBox(125,200,200,100,self)
-        self._open_box = OpenBox(325,200,200,100,self)
+        self._new_box = NewBox(250,200,250,200,self)
+        self._open_box = OpenBox(500,200,250,200,self)
 
     def handleMouse(self):
         self._new_box.handleMouse()
