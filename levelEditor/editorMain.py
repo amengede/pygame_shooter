@@ -24,6 +24,9 @@ while running:
     SCREEN.fill(DARK_BLUE_GREY)
     program.getActiveElement().draw()
     pg.display.update()
+    CLOCK.tick()
+    fps = CLOCK.get_fps()
+    pg.display.set_caption("Running at "+str(int(fps))+" fps")
 
     #timing: 60fps
-    CLOCK.tick(60)
+    #CLOCK.tick(60)

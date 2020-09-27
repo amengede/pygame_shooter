@@ -57,6 +57,9 @@ class OpenDialogue:
 
     def setCurrentLevel(self,level):
         self._currently_selected_level = level
+
+    def getCurrentLevel(self):
+        return self._currently_selected_level
     
     def changeFileEntryRange(self,change):
         last = len(self._level_names) - 1

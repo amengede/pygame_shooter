@@ -1,12 +1,17 @@
 from editorConfig import *
 from mapGrid import *
+from node import *
 
 class mapEditor:
     def __init__(self,program):
         self._program = program
         self._map_grid = MapGrid(125,25,850,550,self)
-        self._borders = (pg.Rect(0,0,1000,24),pg.Rect(0,24,124,552),
-                        pg.Rect(0,576,1000,24),pg.Rect(976,24,24,552))
+        self._mapSpace = self._map_grid.getMapSpace()
+        #set render target for all game objects
+        for n in program._nodes:
+            program._nodes[n].setRenderTarget(self._mapSpace)
+        for w in program._walls:
+            w.setRenderTarget(self._mapSpace)
 
     def handleMouse(self):
         pass
@@ -18,6 +23,9 @@ class mapEditor:
         return self._program
         
     def draw(self):
+        #render game objects
+        for w in self._program._walls:
+            w.draw()
+        for n in self._program._nodes:
+            self._program._nodes[n].draw()
         self._map_grid.draw()
-        for b in self._borders:
-            pg.draw.rect(SCREEN,DARK_BLUE_GREY,b)

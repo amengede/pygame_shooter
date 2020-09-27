@@ -3,7 +3,7 @@ from gui_boxes import *
 class OpenFileUp(Box):
     def __init__(self,x,y,w,h,parent):
         super().__init__(x,y,w,h,parent)
-        self._graphic = pg.image.load('../gfx/up.png')
+        self._graphic = pg.image.load('../gfx/up.png').convert_alpha()
         self._graphic_rect = pg.Rect(self._x+12,self._y+12,32,32)
 
     def mouseUp(self):

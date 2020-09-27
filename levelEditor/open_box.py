@@ -3,7 +3,7 @@ from openDialogue import *
 class OpenBox(Box):
     def __init__(self,x,y,w,h,parent):
         super().__init__(x,y,w,h,parent)
-        self._graphic = pg.image.load('../gfx/open.png')
+        self._graphic = pg.image.load('../gfx/open.png').convert_alpha()
         self._graphic_rect = pg.Rect(self._x+146,self._y+96,64,64)
         self._text_rect = pg.Rect(self._x+40,self._y+40,self._width,self._height)
 
